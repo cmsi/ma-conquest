@@ -1,0 +1,4 @@
+bin/Conquest usr/bin
+bin/MakeIonFiles usr/bin
+pseudo-and-pao usr/share/conquest
+debian/check usr/share/conquest

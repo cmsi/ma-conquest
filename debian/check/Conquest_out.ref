@@ -1,0 +1,223 @@
+
+            ______________________________________________________
+            ______________________________________________________
+                                                                  
+                                    CONQUEST                      
+                                                                  
+                Concurrent Order N QUantum Electronic STructure   
+            ______________________________________________________
+                                                                  
+                                   Written by:                    
+                                                                  
+                   David Bowler           Tsuyoshi Miyazaki       
+                    (UCL,NIMS)                 (NIMS)             
+                                                                  
+                   Ayako Nakata              Zamaan Raza          
+                      (NIMS)                   (NIMS)             
+                                                                  
+                   Jack Poulton           Lionel Truflandier      
+                      (UCL)                  (Bordeaux)           
+                                                                  
+                  Shereif Mujahed            Jack Baker           
+                      (UCL)                    (UCL)              
+                                                                  
+                 Antonio Torralba         Veronika Brazdova       
+                    (UCL,NIMS)                 (UCL)              
+                                                                  
+                  Lianheng Tong            Michiaki Arita         
+                      (UCL)                    (NIMS)             
+                                                                  
+                    Alex Sena             Umberto Terranova       
+                      (UCL)                    (UCL)              
+                                                                  
+                 Rathin Choudhury           Mike Gillan           
+                      (UCL)                    (UCL)              
+                                                                  
+                           Early Development by                   
+                                                                  
+                   Chris Goringe             Edward Hernandez     
+                      (Keele)                     (Keele)         
+                                                                  
+                                  Ian Bush                        
+                                 (Daresbury)                      
+            ______________________________________________________
+            ______________________________________________________
+
+
+
+           8 symmetry inequivalent Kpoints in Cartesian form (1/A): 
+            1       0.000000       0.000000       0.000000       0.125
+            2       0.000000       0.000000       0.303243       0.125
+            3       0.000000       0.303243       0.000000       0.125
+            4       0.000000       0.303243       0.303243       0.125
+            5       0.303243       0.000000       0.000000       0.125
+            6       0.303243       0.000000       0.303243       0.125
+            7       0.303243       0.303243       0.000000       0.125
+            8       0.303243       0.303243       0.303243       0.125
+
+          Detected system type: bulk
+
+
+          This job was run on 2020/02/18 at 19:17
+
+
+          Code compiled on: 2020年 1月28日 火曜日 13時22分13秒 GMT
+          Version comment: 
+          Git Branch: f-revise-manual; tag, hash: v1.0.1-pre-1-g6a9dd15f
+
+          Job title: 
+                                                                                          
+
+          Solving for the K matrix using diagonalisation 
+
+          Using Fermi-Dirac smearing
+
+          The simulation box has the following dimensions
+          a =    10.36000 b =    10.36000 c =    10.36000 a0
+
+          The number of cell grid points in each direction is :
+                       36 cell grid points along x
+                       36 cell grid points along y
+                       36 cell grid points along z
+
+          The number of cell grid points in each block is :
+                        4 cell grid points along x
+                        4 cell grid points along y
+                        4 cell grid points along z
+
+          integration grid spacing along x   0.28778 a0
+          integration grid spacing along y   0.28778 a0
+          integration grid spacing along z   0.28778 a0
+
+          The number of atomic species in the system is :    1
+
+      ------------------------------------------------------------------
+         #   Label     Mass (a.u.)   Charge (e)  NLPF Rad (a0)   NSF  
+      ------------------------------------------------------------------
+         1   Si                               28.08600    4.00000    7.12043          13
+             PAO basis
+      ------------------------------------------------------------------
+
+
+          Energy tolerance required:               0.00001000
+          Self consistent convergence tolerance:   0.00000100
+
+             Using neutral atom potential (NAP) formalism
+
+          The calculation will be performed on     2 processes
+          Maximum number of SCF iterations:   50
+
+          Species  1 Non-local Hamiltonian radius =  7.4822 a0
+
+  BIBLIOGRAPHY: If you publish results obtained with CONQUEST, please consider citing the following:
+
+    Overview of CONQUEST methodology
+    {Recent progress in linear scaling $\backslash$textit{\{}ab initio{\}} electronic structure techniques}
+    {Bowler, D R and Miyazaki, T and Gillan, M J}
+    {J. Phys. Condens. Matter} 14, 2781 (2002)
+    http://dx.doi.org/10.1088/0953-8984/14/11/303
+
+    Force calculations in CONQUEST
+    {Atomic force algorithms in density functional theory electronic-structure techniques based on local orbitals}
+    {T. Miyazaki and D. R. Bowler and R. Choudhury and M. J. Gillan}
+    {J. Chem. Phys.} 121, 6186 (2004)
+    http://dx.doi.org/10.1063/1.1787832
+
+    Overview of CONQUEST methodology, including diagonalisation
+    {Recent progress with large-scale ab initio calculations: the $\backslash$textsc{\{}CONQUEST{\}} code}
+    {Bowler, D R and Choudhury, R and Gillan, M J and Miyazaki, T}
+    {phys. stat. sol. b} 243, 989 (2006)
+    http://dx.doi.org/10.1002/pssb.200541386
+
+  The following papers detail methodology used in this CONQUEST calculation:
+
+    PAO basis sets for CONQUEST
+    {Pseudo-atomic orbitals as basis sets for O(N) DFT code CONQUEST}
+    {A. S. Torralba and M. Todorovic and V. Brazdova and R. Choudhury and T. Miyazaki and M. J. Gillan and D. R. Bowler}
+    {J. Phys.: Condens. Matter} 20, 294206 (2008)
+    http://dx.doi.org/10.1088/0953-8984/20/29/294206
+
+    Overview of CONQUEST methodology, including diagonalisation
+    {Recent progress with large-scale ab initio calculations: the $\backslash$textsc{\{}CONQUEST{\}} code}
+    {Bowler, D R and Choudhury, R and Gillan, M J and Miyazaki, T}
+    {phys. stat. sol. b} 243, 989 (2006)
+    http://dx.doi.org/10.1002/pssb.200541386
+
+    Hamann-type pseudopotentials generated via ONCVPSP
+    Optimized norm-conserving Vanderbilt pseudopotentials
+    D. R. Hamann
+    Phys. Rev. B 88, 85117 (2013)
+    http://dx.doi.org/10.1103/PhysRevB.88.085117
+
+    Details of new CONQUEST PAOs from basis generation tool, using Hamann-type pseudopotentials
+    {Highly accurate local basis sets for large-scale DFT calculations in CONQUEST}
+    {D. R. Bowler and J. S. Baker and J. T. L. Poulton and S. Y. Mujahed and J. Lin and S. Yadav and Z. Raza and T. Miyazaki}
+    {Japan. J. Appl. Phys.} 58, 100503 (2019)
+    http://dx.doi.org/10.7567/1347-4065/ab45af
+
+  The following paper details the functional used in this CONQUEST calculation:
+
+    PBE GGA XC functional
+    {Generalized Gradient Approximation Made Simple}
+    {Perdew, John P. and Burke, Kieron and Ernzerhof, Matthias}
+    {Phys. Rev. Lett.} 77, 3865 (1996)
+    http://dx.doi.org/10.1103/PhysRevLett.77.3865
+
+
+          The functional used will be GGA PBE96      
+          Using PAOs as basis set for support functions
+        Starting self-consistency.  Tolerance:  0.10000E-05
+
+        Starting Pulay mixing, A_up =  0.500 A_dn =  0.500
+        Spin non-polarised calculation.
+          Harris-Foulkes Energy            :       -33.804352952265290 Ha
+          DFT Total Energy                 :       -33.781976927665383 Ha
+        Pulay iteration     1 residual:              0.43817E-02
+          Harris-Foulkes Energy            :       -33.788937687116572 Ha
+          DFT Total Energy                 :       -33.785663650934985 Ha
+        Pulay iteration     2 residual:              0.19886E-02
+          Harris-Foulkes Energy            :       -33.786275733462084 Ha
+          DFT Total Energy                 :       -33.786229006791274 Ha
+        Pulay iteration     3 residual:              0.15561E-03
+          Harris-Foulkes Energy            :       -33.786237864092172 Ha
+          DFT Total Energy                 :       -33.786237732559847 Ha
+        Pulay iteration     4 residual:              0.68141E-05
+          Harris-Foulkes Energy            :       -33.786237769826130 Ha
+          DFT Total Energy                 :       -33.786237760129808 Ha
+        Pulay iteration     5 residual:              0.14216E-05
+          Harris-Foulkes Energy            :       -33.786237762190247 Ha
+          DFT Total Energy                 :       -33.786237762140225 Ha
+        Pulay iteration     6 residual:              0.34407E-07
+        Reached self-consistency tolerance after      6 iterations
+        Starting self-consistency.  Tolerance:  0.10000E-05
+
+        Starting Pulay mixing, A_up =  0.500 A_dn =  0.500
+        Spin non-polarised calculation.
+          Harris-Foulkes Energy            :       -33.786237762190247 Ha
+          DFT Total Energy                 :       -33.786237762140225 Ha
+        Pulay iteration     1 residual:              0.34407E-07
+        Reached self-consistency tolerance after      1 iterations
+           |* Harris-Foulkes energy   =       -33.786237762139983 Ha
+           |* DFT total energy        =       -33.786237762140225 Ha
+           |  estimated accuracy      =         0.000000000000242 Ha
+
+
+                    Forces on atoms (Ha/a0)
+
+                      Atom   X              Y              Z
+                         1   0.0000000000  -0.0000000000  -0.0000000000
+                         2   0.0000000000   0.0000000000  -0.0000000000
+                         3  -0.0000000000  -0.0000000000   0.0000000000
+                         4   0.0000000000  -0.0000000000  -0.0000000000
+                         5  -0.0000000000  -0.0000000000  -0.0000000000
+                         6   0.0000000000  -0.0000000000  -0.0000000000
+                         7   0.0000000000  -0.0000000000   0.0000000000
+                         8   0.0000000000   0.0000000000  -0.0000000000
+    Maximum force :      0.00000000(Ha/a0) on atom, component         2        1
+
+                                    X              Y              Z
+    Total stress:         -0.03123222    -0.03123222    -0.03123222 Ha
+
+    Total pressure:        0.82638276     0.82638276     0.82638276 GPa
+  Max total mem use is    159.875 MB
+  Total run time was:               27.997 seconds
