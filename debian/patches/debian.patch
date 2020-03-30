@@ -1,51 +1,169 @@
 --- a/src/system.make
 +++ b/src/system.make
-@@ -13,10 +13,10 @@
- COMPFLAGS_F77= $(COMPFLAGS)
+@@ -1,44 +1,56 @@
+ #
++include /usr/share/dpkg/architecture.mk
++include /usr/share/mpi-default-dev/debian_defaults
++DEB_RELEASE ?= $(shell lsb_release -c -s)
+ 
+ # Set compilers
+-FC=mpif90
+-F77=mpif77
++FC = mpif90
++F77 = mpif77
+ 
+ # Linking flags
+-LINKFLAGS= -L/usr/local/lib
+-ARFLAGS=
++LINKFLAGS = -L/usr/local/lib
++ARFLAGS =
+ 
+ # Compilation flags
+-COMPFLAGS= -O3 $(XC_COMPFLAGS)
+-COMPFLAGS_F77= $(COMPFLAGS)
++COMPFLAGS = -O3 $(XC_COMPFLAGS)
++COMPFLAGS_F77 = $(COMPFLAGS)
  
  # Set BLAS and LAPACK libraries
 -BLAS= -lvecLibFort
-+BLAS= -llapack -lblas
++BLAS = -llapack -lblas
++
++ifeq ($(DEB_RELEASE), jessie)
++    SCALAPACK_LIB = -lscalapack-$(ARCH_DEFAULT_MPI_IMPL) -lblacs-$(ARCH_DEFAULT_MPI_IMPL) -lblacsF77init-$(ARCH_DEFAULT_MPI_IMPL)
++else ifeq ($(DEB_RELEASE), stretch)
++    SCALAPACK_LIB = -lscalapack-$(ARCH_DEFAULT_MPI_IMPL) -lblacs-$(ARCH_DEFAULT_MPI_IMPL) -lblacsF77init-$(ARCH_DEFAULT_MPI_IMPL)
++else ifeq ($(DEB_RELEASE), xenial)
++    SCALAPACK_LIB = -lscalapack-$(ARCH_DEFAULT_MPI_IMPL) -lblacs-$(ARCH_DEFAULT_MPI_IMPL) -lblacsF77init-$(ARCH_DEFAULT_MPI_IMPL)
++else
++    SCALAPACK_LIB = -lscalapack-$(ARCH_DEFAULT_MPI_IMPL)
++endif
  
  # Full library call; remove scalapack if using dummy diag module
 -LIBS= $(FFT_LIB) $(XC_LIB) -lscalapack $(BLAS)
-+LIBS= $(FFT_LIB) $(XC_LIB) -lscalapack-openmpi $(BLAS)
++LIBS = $(FFT_LIB) $(XC_LIB) $(SCALAPACK_LIB) $(BLAS)
  
  # LibXC compatibility (LibXC below) or Conquest XC library
- 
-@@ -30,7 +30,7 @@
- #XC_LIBRARY = LibXC_v2
- XC_LIBRARY = LibXC
- XC_LIB = -lxcf90 -lxc
+-
+-# Conquest XC library
+-#XC_LIBRARY = CQ
+-#XC_LIB =
+-#XC_COMPFLAGS =
+-
+-# LibXC compatibility
+-# Choose old LibXC (v2.x) or modern versions
+-#XC_LIBRARY = LibXC_v2
+-XC_LIBRARY = LibXC
+-XC_LIB = -lxcf90 -lxc
 -XC_COMPFLAGS = -I/usr/local/include
-+XC_COMPFLAGS = -I/usr/include
++ifeq ($(DEB_RELEASE), jessie)
++    XC_LIBRARY = CQ
++else ifeq ($(DEB_RELEASE), stretch)
++    XC_LIBRARY = CQ
++else ifeq ($(DEB_RELEASE), xenial)
++    XC_LIBRARY = CQ
++else ifeq ($(DEB_RELEASE), bionic)
++    XC_LIBRARY = CQ
++else
++    XC_LIBRARY = LibXC
++    XC_LIB = -lxcf90 -lxc
++    XC_COMPFLAGS = -I/usr/include
++endif
  
  # Set FFT library
- FFT_LIB=-lfftw3
+-FFT_LIB=-lfftw3
+-FFT_OBJ=fft_fftw3.o
++FFT_LIB = -lfftw3
++FFT_OBJ = fft_fftw3.o
+ 
+ # Matrix multiplication kernel type
+ MULT_KERN = default
+ # Use dummy DiagModule or not
+ DIAG_DUMMY =
+-
+-
 --- a/tools/BasisGeneration/system.make
 +++ b/tools/BasisGeneration/system.make
-@@ -13,10 +13,10 @@
- COMPFLAGS_F77= $(COMPFLAGS)
+@@ -1,44 +1,56 @@
+ #
++include /usr/share/dpkg/architecture.mk
++include /usr/share/mpi-default-dev/debian_defaults
++DEB_RELEASE ?= $(shell lsb_release -c -s)
+ 
+ # Set compilers
+-FC=mpif90
+-F77=mpif77
++FC = mpif90
++F77 = mpif77
+ 
+ # Linking flags
+-LINKFLAGS= -L/usr/local/lib
+-ARFLAGS=
++LINKFLAGS = -L/usr/local/lib
++ARFLAGS =
+ 
+ # Compilation flags
+-COMPFLAGS= -O3 $(XC_COMPFLAGS)
+-COMPFLAGS_F77= $(COMPFLAGS)
++COMPFLAGS = -O3 $(XC_COMPFLAGS)
++COMPFLAGS_F77 = $(COMPFLAGS)
  
  # Set BLAS and LAPACK libraries
 -BLAS= -lvecLibFort
-+BLAS= -llapack -lblas
++BLAS = -llapack -lblas
++
++ifeq ($(DEB_RELEASE), jessie)
++    SCALAPACK_LIB = -lscalapack-$(ARCH_DEFAULT_MPI_IMPL) -lblacs-$(ARCH_DEFAULT_MPI_IMPL) -lblacsF77init-$(ARCH_DEFAULT_MPI_IMPL)
++else ifeq ($(DEB_RELEASE), stretch)
++    SCALAPACK_LIB = -lscalapack-$(ARCH_DEFAULT_MPI_IMPL) -lblacs-$(ARCH_DEFAULT_MPI_IMPL) -lblacsF77init-$(ARCH_DEFAULT_MPI_IMPL)
++else ifeq ($(DEB_RELEASE), xenial)
++    SCALAPACK_LIB = -lscalapack-$(ARCH_DEFAULT_MPI_IMPL) -lblacs-$(ARCH_DEFAULT_MPI_IMPL) -lblacsF77init-$(ARCH_DEFAULT_MPI_IMPL)
++else
++    SCALAPACK_LIB = -lscalapack-$(ARCH_DEFAULT_MPI_IMPL)
++endif
  
  # Full library call; remove scalapack if using dummy diag module
 -LIBS= $(FFT_LIB) $(XC_LIB) -lscalapack $(BLAS)
-+LIBS= $(FFT_LIB) $(XC_LIB) -lscalapack-openmpi $(BLAS)
++LIBS = $(FFT_LIB) $(XC_LIB) $(SCALAPACK_LIB) $(BLAS)
  
  # LibXC compatibility (LibXC below) or Conquest XC library
- 
-@@ -30,7 +30,7 @@
- #XC_LIBRARY = LibXC_v2
- XC_LIBRARY = LibXC
- XC_LIB = -lxcf90 -lxc
+-
+-# Conquest XC library
+-#XC_LIBRARY = CQ
+-#XC_LIB =
+-#XC_COMPFLAGS =
+-
+-# LibXC compatibility
+-# Choose old LibXC (v2.x) or modern versions
+-#XC_LIBRARY = LibXC_v2
+-XC_LIBRARY = LibXC
+-XC_LIB = -lxcf90 -lxc
 -XC_COMPFLAGS = -I/usr/local/include
-+XC_COMPFLAGS = -I/usr/include
++ifeq ($(DEB_RELEASE), jessie)
++    XC_LIBRARY = CQ
++else ifeq ($(DEB_RELEASE), stretch)
++    XC_LIBRARY = CQ
++else ifeq ($(DEB_RELEASE), xenial)
++    XC_LIBRARY = CQ
++else ifeq ($(DEB_RELEASE), bionic)
++    XC_LIBRARY = CQ
++else
++    XC_LIBRARY = LibXC
++    XC_LIB = -lxcf90 -lxc
++    XC_COMPFLAGS = -I/usr/include
++endif
  
  # Set FFT library
- FFT_LIB=-lfftw3
+-FFT_LIB=-lfftw3
+-FFT_OBJ=fft_fftw3.o
++FFT_LIB = -lfftw3
++FFT_OBJ = fft_fftw3.o
+ 
+ # Matrix multiplication kernel type
+ MULT_KERN = default
+ # Use dummy DiagModule or not
+ DIAG_DUMMY =
+-
+-
 --- a/src/Makefile
 +++ b/src/Makefile
 @@ -96,9 +96,9 @@
