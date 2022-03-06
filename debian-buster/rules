@@ -17,5 +17,5 @@ override_dh_clean:
 	make -C tools/BasisGeneration clean
 
 override_dh_auto_build:
-	make -C src
+	make -C src COMPFLAGS='-O3 -I/usr/include'
 	make -C tools/BasisGeneration
